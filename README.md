@@ -1,4 +1,4 @@
-# Mystic-Light-CLI-Disabler
+# Darkest Light
 
 I wanted a software to simply disable Mystic Light on execute, and then re-enable it back instead of navigating original application.
 
