@@ -280,49 +280,4 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		return -1;
 	}
 	return 0;
-
-	/*
-	HKEY hk;
-	RegCreateKeyExW(HKEY_CURRENT_USER, L"Software\\Starl1ght\\Darkest-Light", 0, 0, 0, KEY_ALL_ACCESS, 0, &hk, NULL);
-
-	const auto sz = devices[0].size() + 1 + 1;
-	wchar_t* bub = new wchar_t[sz];
-	RtlZeroMemory(bub, sz * 2);
-	memcpy_s(bub, sz * 2, devices[0].c_str(), devices[0].size() * 2);
-
-	RegSetKeyValueW(hk, nullptr, nullptr, REG_MULTI_SZ, bub, sz * 2);
-
-	for (ULONG i = 0; i < inf.size(); ++i)
-	{
-		const auto base_st = devices[0] + L'_' + std::to_wstring(i) + L'_';
-
-		const auto style_v = base_st + L"style";
-		RegSetValueExW(hk, style_v.c_str(), 0, REG_SZ, (const BYTE*)inf[i].style.c_str(), inf[i].style.size() * 2 + 2);
-
-		const auto r_v = base_st + L"red";
-		RegSetValueExW(hk, r_v.c_str(), 0, REG_DWORD, (const BYTE*)&inf[i].red, 4);
-		const auto r_g = base_st + L"green";
-		RegSetValueExW(hk, r_g.c_str(), 0, REG_DWORD, (const BYTE*)&inf[i].green, 4);
-		const auto r_b = base_st + L"blue";
-		RegSetValueExW(hk, r_b.c_str(), 0, REG_DWORD, (const BYTE*)&inf[i].blue, 4);
-		const auto r_sp = base_st + L"speed";
-		RegSetValueExW(hk, r_sp.c_str(), 0, REG_DWORD, (const BYTE*)&inf[i].speed, 4);
-		const auto r_br = base_st + L"brightness";
-		RegSetValueExW(hk, r_br.c_str(), 0, REG_DWORD, (const BYTE*)&inf[i].brightness, 4);
-	}
-	RegCloseKey(hk);
-
-	wchar_t buf[2048];
-	RegCreateKeyExW(HKEY_CURRENT_USER, L"Software\\Starl1ght\\Darkest-Light", 0, 0, 0, KEY_ALL_ACCESS, 0, &hk, NULL);
-	DWORD a, blue, c, d;
-	RegQueryValueExW(hk, nullptr, 0, &a, (BYTE*)buf, &blue);
-
-	/*ML::set_led_style(L"MSI_MB", 0, L"Off");
-	ML::set_led_style(L"MSI_MB", 1, L"Off");
-	ML::set_led_style(L"MSI_MB", 2, L"Off");
-	ML::set_led_style(L"MSI_MB", 3, L"Off");
-	ML::set_led_style(L"MSI_MB", 4, L"Off");
-	ML::set_led_style(L"MSI_MB", 5, L"Off");
-	ML::set_led_style(L"MSI_MB", 6, L"Off");
-	ML::set_led_style(L"MSI_MB", 7, L"Off");*/
 }
