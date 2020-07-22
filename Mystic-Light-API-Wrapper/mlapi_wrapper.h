@@ -1,6 +1,7 @@
 #pragma once
 #include <tuple>
 #include <vector>
+#include <string>
 
 namespace starl1ght
 {

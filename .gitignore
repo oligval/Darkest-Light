@@ -34,3 +34,10 @@
 *.exe
 *.out
 *.app
+/.vs
+/Darkest-Light/Release
+/Darkest-Light/x64/Release
+/Release
+/x64/Release
+/Mystic-Light-API-Wrapper/Release
+/Mystic-Light-API-Wrapper/x64/Release

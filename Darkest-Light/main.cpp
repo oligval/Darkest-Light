@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include <string>
-#include <mlapi_wrapper.h>
+#include "../Mystic-Light-API-Wrapper/mlapi_wrapper.h"
 #include <optional>
 #include <exception>
 
@@ -238,7 +238,7 @@ void save_devices(const std::vector<device_info>& devices)
 		device_multi_sz.append(device.name);
 		device_multi_sz.push_back(0);
 
-		save_to_reg(hk, device.name + L"-count", DWORD{ device.led_info.size() });
+		save_to_reg(hk, device.name + L"-count", DWORD{ static_cast<DWORD>(device.led_info.size()) });
 
 		for (size_t i = 0; i < device.led_info.size(); ++i) {
 			const auto& base_val = device.name + L"-" + std::to_wstring(i) + L"-";

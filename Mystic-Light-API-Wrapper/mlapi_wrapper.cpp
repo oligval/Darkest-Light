@@ -1,9 +1,12 @@
 #define NOMINMAX
+#include <atlbase.h>
 #include <Windows.h>
 #include <comutil.h>
 #include "mlapi_wrapper.h"
-#include <MysticLight_SDK/MysticLight_SDK.h>
+#include "../3rdparty/MysticLight_SDK/MysticLight_SDK.h"
 #include <atlsafe.h>
+#include <string>
+#include <tuple>
 
 // for _bstr_t
 #ifdef _DEBUG
@@ -188,6 +191,11 @@ namespace starl1ght
 			return{ result_from_int(result), bright };
 		}
 
+		std::tuple<result, uint32_t> get_led_max_bright(const wchar_t* device, uint32_t led_id)
+		{
+			return std::tuple<result, uint32_t>();
+		}
+
 		// 1 ... 3
 		std::tuple<result, uint32_t> get_led_speed(const wchar_t* device, uint32_t led_id)
 		{
@@ -200,6 +208,16 @@ namespace starl1ght
 
 			const auto result = MLAPI_GetLedSpeed(device_bstr.GetBSTR(), led_id, &speed);
 			return{ result_from_int(result), speed };
+		}
+
+		std::tuple<result, uint32_t> get_led_max_speed(const wchar_t* device, uint32_t led_id)
+		{
+			return std::tuple<result, uint32_t>();
+		}
+
+		std::tuple<result> get_led_info(const wchar_t* device, uint32_t led_id)
+		{
+			return std::tuple<result>();
 		}
 
 		result set_led_style(const wchar_t* device, uint32_t led_id, const wchar_t* style)
